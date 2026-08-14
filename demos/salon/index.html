@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luna Beauty Studio | Hair, Nails & Treatments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush: #F8EDE8;
+      --rose: #C97B84;
+      --deep: #3D2C2E;
+      --soft: #E8D5D0;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--deep); background: var(--blush); line-height: 1.6; }
+    h1,h2,h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1080px, 92%); margin: 0 auto; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(248,237,232,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(61,44,46,0.06);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 700; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 1.6rem; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--rose); }
+    .btn {
+      display: inline-block; background: var(--rose); color: var(--white);
+      padding: 0.8rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(201,123,132,0.3); }
+    .btn-outline {
+      background: transparent; color: var(--deep); border: 1.5px solid var(--deep);
+    }
+    .btn-outline:hover { background: var(--deep); color: var(--white); }
+
+    .hero {
+      min-height: 92vh; display: grid; place-items: center; text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      background:
+        linear-gradient(rgba(61,44,46,0.35), rgba(61,44,46,0.5)),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--white);
+    }
+    .hero h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); margin-bottom: 0.7rem; }
+    .hero p { font-size: 1.1rem; max-width: 480px; margin: 0 auto 1.8rem; opacity: 0.95; }
+
+    section { padding: 4.5rem 0; }
+    .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 0.4rem; }
+    .section-sub { text-align: center; color: #7a6568; margin-bottom: 2.4rem; }
+
+    .services {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.4rem;
+    }
+    .service-card {
+      background: var(--white); border-radius: 18px; padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 28px rgba(61,44,46,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(61,44,46,0.1); }
+    .service-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--rose); }
+    .service-card p { font-size: 0.92rem; color: #6e5a5d; margin-bottom: 0.8rem; }
+    .service-card .from { font-weight: 600; font-size: 0.95rem; }
+
+    .booking {
+      background: var(--white);
+    }
+    .booking-box {
+      max-width: 560px; margin: 0 auto; background: var(--blush);
+      border-radius: 20px; padding: 2.2rem 2rem; border: 1px solid var(--soft);
+    }
+    .booking-box h2 { text-align: center; margin-bottom: 0.4rem; font-size: 1.9rem; }
+    .booking-box > p { text-align: center; color: #7a6568; margin-bottom: 1.6rem; font-size: 0.95rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.75rem 0.9rem; border: 1px solid var(--soft);
+      border-radius: 10px; font: inherit; background: var(--white); color: var(--deep);
+    }
+    .form-group textarea { min-height: 90px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .booking-box .btn { width: 100%; margin-top: 0.5rem; text-align: center; }
+    .form-success {
+      display: none; text-align: center; padding: 1.5rem; color: var(--deep);
+      background: #e8f5e9; border-radius: 12px; margin-top: 1rem;
+    }
+
+    .gallery {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .gallery img {
+      width: 100%; height: 220px; object-fit: cover; border-radius: 14px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.02); }
+
+    footer {
+      background: var(--deep); color: rgba(248,237,232,0.75); text-align: center;
+      padding: 1.6rem; font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Luna Beauty</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#booking">Book</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+      <a href="#booking" class="btn">Book Now</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Beauty, calmly done</h1>
+      <p>Hair, nails and treatments in a relaxed studio. Book online in a few clicks.</p>
+      <a href="#booking" class="btn">Book an appointment</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Choose a treatment and book a time that suits you</p>
+      <div class="services">
+        <article class="service-card">
+          <h3>Hair</h3>
+          <p>Cut, colour, blow dry and restyle with a consultation first.</p>
+          <div class="from">From £35</div>
+        </article>
+        <article class="service-card">
+          <h3>Nails</h3>
+          <p>Manicure, pedicure, gel polish and simple nail art.</p>
+          <div class="from">From £25</div>
+        </article>
+        <article class="service-card">
+          <h3>Facials</h3>
+          <p>Gentle, skin-focused treatments tailored to your needs.</p>
+          <div class="from">From £45</div>
+        </article>
+        <article class="service-card">
+          <h3>Brows & Lashes</h3>
+          <p>Tinting, shaping and lash lifts for a polished finish.</p>
+          <div class="from">From £18</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="container">
+      <div class="booking-box">
+        <h2>Book online</h2>
+        <p>Request a time — we’ll confirm by message or email</p>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required placeholder="Full name" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="07xxx xxxxxx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Hair cut & finish</option>
+              <option>Hair colour</option>
+              <option>Gel manicure</option>
+              <option>Pedicure</option>
+              <option>Facial</option>
+              <option>Brow shape & tint</option>
+              <option>Lash lift</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred date</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Preferred time</label>
+              <select id="time" name="time" required>
+                <option value="">Select</option>
+                <option>09:30</option>
+                <option>11:00</option>
+                <option>12:30</option>
+                <option>14:00</option>
+                <option>15:30</option>
+                <option>17:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Anything we should know?"></textarea>
+          </div>
+          <button type="submit" class="btn">Request booking</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          Thank you — your booking request has been received. We’ll confirm shortly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Studio</h2>
+      <p class="section-sub">A calm space to relax and be looked after</p>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Salon interior" />
+        <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=600&q=80" alt="Hair styling" />
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Nail treatment" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Luna Beauty Studio — Demo website by Coastline Virtual Studio</p>
+  </footer>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

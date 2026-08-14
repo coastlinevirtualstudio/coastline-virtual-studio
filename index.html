@@ -331,6 +331,33 @@
     </div>
   </footer>
 
+  <!-- AI Chat Assistant -->
+  <div class="chat-widget" id="chatWidget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+      <span class="chat-toggle-icon" id="chatToggleIcon">💬</span>
+    </button>
+    <div class="chat-panel" id="chatPanel" hidden>
+      <div class="chat-header">
+        <div>
+          <strong>Coastline Assistant</strong>
+          <span class="chat-status">Online · usually replies instantly</span>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat">×</button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button type="button" data-q="What services do you offer?">Services</button>
+        <button type="button" data-q="How much does a website cost?">Pricing</button>
+        <button type="button" data-q="Where are you based?">Location</button>
+        <button type="button" data-q="How do I get started?">Get started</button>
+      </div>
+      <form class="chat-input-row" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ask a question..." autocomplete="off" />
+        <button type="submit" aria-label="Send">➤</button>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

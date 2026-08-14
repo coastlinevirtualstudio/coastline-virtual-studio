@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Hours - Roly's Traditional Pie and Mash</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Georgia:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .header-font { font-family: 'Playfair Display', serif; }
+        .body-font { font-family: 'Georgia', serif; }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { color: #9B1C1C; transform: translateY(-2px); }
+        .call-btn { transition: all 0.3s ease; }
+        .call-btn:hover { transform: scale(1.15) rotate(15deg); background-color: #9B1C1C; }
+        .day-row { transition: all 0.25s ease; }
+        .day-row:hover { transform: translateX(10px); box-shadow: 0 10px 15px -3px rgb(74 140 47 / 0.2); }
+        .open-row:hover { background-color: #4A8C2F !important; color: white !important; }
+    </style>
+</head>
+<body class="bg-white text-stone-800">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="header-font text-2xl md:text-3xl font-bold tracking-wider text-[#9B1C1C] -ml-1">
+                ROLY'S TRADITIONAL PIE AND MASH
+            </div>
+
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="menu.html" class="nav-link">MENU</a>
+                <a href="opening-times.html" class="nav-link text-[#9B1C1C]">OPENING HOURS</a>
+                <a href="find-us.html" class="nav-link">FIND US</a>
+            </nav>
+
+            <button id="hamburger" class="md:hidden text-3xl text-[#9B1C1C]">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="tel:07586924922" class="call-btn bg-[#4A8C2F] text-white w-9 h-9 flex items-center justify-center rounded-full ml-6">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-8 flex flex-col gap-6 text-lg font-medium">
+                <a href="index.html">HOME</a>
+                <a href="menu.html">MENU</a>
+                <a href="opening-times.html">OPENING HOURS</a>
+                <a href="find-us.html">FIND US</a>
+                <a href="tel:07586924922" class="bg-[#4A8C2F] text-white text-center py-4 rounded font-bold flex items-center justify-center gap-3 mt-4">
+                    <i class="fa-solid fa-phone"></i> CALL TO ORDER
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+        <h1 class="header-font text-6xl text-[#9B1C1C] mb-12">Opening Hours</h1>
+        
+        <div class="max-w-md mx-auto space-y-4 text-left">
+            <div class="day-row flex justify-between bg-stone-100 p-5 rounded"><span>Monday</span><span class="text-red-600">CLOSED</span></div>
+            <div class="day-row flex justify-between bg-stone-100 p-5 rounded"><span>Tuesday</span><span class="text-red-600">CLOSED</span></div>
+            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Wednesday</span><span>11AM – 6PM</span></div>
+            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Thursday</span><span>11AM – 6PM</span></div>
+            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Friday</span><span>11AM – 6PM</span></div>
+            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Saturday</span><span>11AM – 6PM</span></div>
+            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Sunday</span><span>10AM – 2PM</span></div>
+        </div>
+    </div>
+
+    <!-- MAILING LIST -->
+    <section class="py-16 bg-stone-50">
+        <div class="max-w-md mx-auto px-6 text-center">
+            <p class="font-medium mb-4">Sign up to our mailing list to find out future offers, events and exciting news!</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScag4r5Idl9Y3N_l89ta5ILAscaq3nqvm8buDlzdnfyMtHCGg/viewform" 
+               target="_blank"
+               class="inline-block bg-white text-[#9B1C1C] hover:bg-[#9B1C1C] hover:text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 text-lg hover:scale-105 shadow-md hover:shadow-xl">
+                Subscribe Now
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#4A8C2F] text-white py-12 text-center px-6">
+        <p class="text-base md:text-lg">18 East Street, Selsey, Chichester, PO20 0BJ</p>
+        <p class="mt-2 text-xl md:text-2xl font-bold">07586 924922</p>
+
+        <div class="flex justify-center gap-8 mt-10 flex-wrap">
+            <a href="https://www.facebook.com/share/1CCyAzhzyL/" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
+                <i class="fa-brands fa-facebook text-3xl"></i>
+                <span class="font-medium">roly's pies</span>
+            </a>
+            <a href="https://www.instagram.com/rolys.pie.and.mash" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
+                <i class="fa-brands fa-instagram text-3xl"></i>
+                <span class="font-medium">rolys.pie.and.mash</span>
+            </a>
+            <a href="https://www.tiktok.com/@rolyspieandmash" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
+                <i class="fa-brands fa-tiktok text-3xl"></i>
+                <span class="font-medium">Rolyspieandmash</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
+</body>
+</html>

@@ -1,119 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opening Hours - Roly's Traditional Pie and Mash</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Georgia:wght@400;700&amp;display=swap" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        .header-font { font-family: 'Playfair Display', serif; }
-        .body-font { font-family: 'Georgia', serif; }
-        .nav-link { transition: all 0.2s ease; }
-        .nav-link:hover { color: #9B1C1C; transform: translateY(-2px); }
-        .call-btn { transition: all 0.3s ease; }
-        .call-btn:hover { transform: scale(1.15) rotate(15deg); background-color: #9B1C1C; }
-        .day-row { transition: all 0.25s ease; }
-        .day-row:hover { transform: translateX(10px); box-shadow: 0 10px 15px -3px rgb(74 140 47 / 0.2); }
-        .open-row:hover { background-color: #4A8C2F !important; color: white !important; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harbour Roast Café | Fresh Coffee & Food by the Sea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F7F3EB;
+      --brown: #3D2B1F;
+      --coffee: #6F4E37;
+      --accent: #C4A484;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--brown); background: var(--cream); line-height: 1.6; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(247,243,235,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(61,43,31,0.08);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--coffee); }
+    .nav-links { display: flex; gap: 1.75rem; font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--coffee); }
+    .btn {
+      display: inline-block; background: var(--coffee); color: var(--white);
+      padding: 0.75rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(111,78,55,0.25); }
+
+    .hero {
+      min-height: 100vh; display: grid; place-items: center; text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      background:
+        linear-gradient(rgba(61,43,31,0.45), rgba(61,43,31,0.55)),
+        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--white);
+    }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 0.8rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1.8rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    section { padding: 5rem 0; }
+    .section-title { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; color: var(--brown); }
+    .section-sub { text-align: center; color: #6b5a4e; margin-bottom: 2.5rem; }
+
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+    }
+    .menu-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: 0 8px 24px rgba(61,43,31,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(61,43,31,0.1); }
+    .menu-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .menu-card .info { padding: 1.2rem 1.3rem 1.4rem; }
+    .menu-card h3 { font-size: 1.15rem; margin-bottom: 0.35rem; }
+    .menu-card p { font-size: 0.9rem; color: #6b5a4e; }
+    .price { margin-top: 0.6rem; font-weight: 600; color: var(--coffee); }
+
+    .about {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .about img { width: 100%; border-radius: 18px; box-shadow: 0 12px 36px rgba(61,43,31,0.12); }
+    .about h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .about p { color: #5c4c40; margin-bottom: 1rem; }
+
+    .hours-box {
+      background: var(--white); border-radius: 16px; padding: 2rem; margin-top: 2rem;
+      border: 1px solid rgba(61,43,31,0.08);
+    }
+    .hours-box h3 { margin-bottom: 0.8rem; }
+    .hours-box li { list-style: none; display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid rgba(61,43,31,0.06); font-size: 0.95rem; }
+
+    .contact {
+      background: var(--brown); color: var(--cream); text-align: center;
+    }
+    .contact h2 { color: var(--cream); margin-bottom: 0.6rem; }
+    .contact p { opacity: 0.9; margin-bottom: 0.4rem; }
+    .contact .btn { margin-top: 1.2rem; background: var(--accent); color: var(--brown); }
+
+    footer {
+      background: #2a1d15; color: rgba(247,243,235,0.7); text-align: center;
+      padding: 1.5rem; font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="bg-white text-stone-800">
-
-    <!-- HEADER -->
-    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="header-font text-2xl md:text-3xl font-bold tracking-wider text-[#9B1C1C] -ml-1">
-                ROLY'S TRADITIONAL PIE AND MASH
-            </div>
-
-            <nav class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="menu.html" class="nav-link">MENU</a>
-                <a href="opening-times.html" class="nav-link text-[#9B1C1C]">OPENING HOURS</a>
-                <a href="find-us.html" class="nav-link">FIND US</a>
-            </nav>
-
-            <button id="hamburger" class="md:hidden text-3xl text-[#9B1C1C]">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <a href="tel:07586924922" class="call-btn bg-[#4A8C2F] text-white w-9 h-9 flex items-center justify-center rounded-full ml-6">
-                <i class="fa-solid fa-phone"></i>
-            </a>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-6 py-8 flex flex-col gap-6 text-lg font-medium">
-                <a href="index.html">HOME</a>
-                <a href="menu.html">MENU</a>
-                <a href="opening-times.html">OPENING HOURS</a>
-                <a href="find-us.html">FIND US</a>
-                <a href="tel:07586924922" class="bg-[#4A8C2F] text-white text-center py-4 rounded font-bold flex items-center justify-center gap-3 mt-4">
-                    <i class="fa-solid fa-phone"></i> CALL TO ORDER
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <div class="max-w-4xl mx-auto px-6 py-16 text-center">
-        <h1 class="header-font text-6xl text-[#9B1C1C] mb-12">Opening Hours</h1>
-        
-        <div class="max-w-md mx-auto space-y-4 text-left">
-            <div class="day-row flex justify-between bg-stone-100 p-5 rounded"><span>Monday</span><span class="text-red-600">CLOSED</span></div>
-            <div class="day-row flex justify-between bg-stone-100 p-5 rounded"><span>Tuesday</span><span class="text-red-600">CLOSED</span></div>
-            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Wednesday</span><span>11AM – 6PM</span></div>
-            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Thursday</span><span>11AM – 6PM</span></div>
-            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Friday</span><span>11AM – 6PM</span></div>
-            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Saturday</span><span>11AM – 6PM</span></div>
-            <div class="day-row open-row flex justify-between bg-[#4A8C2F] text-white p-5 rounded"><span>Sunday</span><span>10AM – 2PM</span></div>
-        </div>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Harbour Roast</a>
+      <nav class="nav-links">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn">Visit Us</a>
     </div>
+  </header>
 
-    <!-- MAILING LIST -->
-    <section class="py-16 bg-stone-50">
-        <div class="max-w-md mx-auto px-6 text-center">
-            <p class="font-medium mb-4">Sign up to our mailing list to find out future offers, events and exciting news!</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScag4r5Idl9Y3N_l89ta5ILAscaq3nqvm8buDlzdnfyMtHCGg/viewform" 
-               target="_blank"
-               class="inline-block bg-white text-[#9B1C1C] hover:bg-[#9B1C1C] hover:text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 text-lg hover:scale-105 shadow-md hover:shadow-xl">
-                Subscribe Now
-            </a>
+  <section class="hero">
+    <div>
+      <h1>Coffee, food &amp; sea air</h1>
+      <p>Harbour Roast is a cosy coastal café serving specialty coffee, fresh pastries and simple food made with care.</p>
+      <a href="#menu" class="btn">View Menu</a>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <h2 class="section-title">Favourites</h2>
+      <p class="section-sub">Freshly prepared every day</p>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Flat white" />
+          <div class="info">
+            <h3>Flat White</h3>
+            <p>Smooth espresso with silky steamed milk</p>
+            <div class="price">£3.40</div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Pastries" />
+          <div class="info">
+            <h3>Fresh Pastries</h3>
+            <p>Croissants, cinnamon buns & seasonal bakes</p>
+            <div class="price">from £2.80</div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" alt="Breakfast" />
+          <div class="info">
+            <h3>All-Day Breakfast</h3>
+            <p>Eggs, sourdough, avocado or full English</p>
+            <div class="price">from £8.50</div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Lunch" />
+          <div class="info">
+            <h3>Light Lunches</h3>
+            <p>Soups, salads and toasted sandwiches</p>
+            <div class="price">from £7.00</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background: var(--white);">
+    <div class="container about">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80" alt="Café interior" />
+      <div>
+        <h2>A local café with a coastal feel</h2>
+        <p>Harbour Roast started as a small coffee counter and grew into a welcoming space for locals, walkers and visitors looking for good coffee and honest food.</p>
+        <p>We roast locally, bake in-house where we can, and keep the menu simple so everything stays fresh.</p>
+        <div class="hours-box" id="hours">
+          <h3>Opening hours</h3>
+          <ul>
+            <li><span>Mon – Fri</span><span>8:00 – 16:00</span></li>
+            <li><span>Saturday</span><span>8:30 – 16:30</span></li>
+            <li><span>Sunday</span><span>9:00 – 15:00</span></li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-[#4A8C2F] text-white py-12 text-center px-6">
-        <p class="text-base md:text-lg">18 East Street, Selsey, Chichester, PO20 0BJ</p>
-        <p class="mt-2 text-xl md:text-2xl font-bold">07586 924922</p>
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Find us</h2>
+      <p>12 Harbour Street, Coastal Town</p>
+      <p>hello@harbourroast.demo · 01234 567890</p>
+      <a href="tel:01234567890" class="btn">Call to book a table</a>
+    </div>
+  </section>
 
-        <div class="flex justify-center gap-8 mt-10 flex-wrap">
-            <a href="https://www.facebook.com/share/1CCyAzhzyL/" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
-                <i class="fa-brands fa-facebook text-3xl"></i>
-                <span class="font-medium">roly's pies</span>
-            </a>
-            <a href="https://www.instagram.com/rolys.pie.and.mash" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
-                <i class="fa-brands fa-instagram text-3xl"></i>
-                <span class="font-medium">rolys.pie.and.mash</span>
-            </a>
-            <a href="https://www.tiktok.com/@rolyspieandmash" target="_blank" class="flex items-center gap-3 hover:text-[#9B1C1C] transition-colors">
-                <i class="fa-brands fa-tiktok text-3xl"></i>
-                <span class="font-medium">Rolyspieandmash</span>
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
-        });
-    </script>
+  <footer>
+    <p>Harbour Roast Café — Demo website by Coastline Virtual Studio</p>
+  </footer>
 </body>
 </html>

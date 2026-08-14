@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightPath Electrical | Reliable Local Electrician</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0F2744;
+      --blue: #1B4F8A;
+      --yellow: #F5B700;
+      --light: #F4F7FB;
+      --muted: #5A6B7D;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
+    h1,h2,h3 { font-family: 'Outfit', sans-serif; font-weight: 700; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(15,39,68,0.08);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.95rem 0; }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+    .logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 1.6rem; font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn {
+      display: inline-block; background: var(--yellow); color: var(--navy);
+      padding: 0.75rem 1.35rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245,183,0,0.35); }
+    .btn-dark { background: var(--navy); color: var(--white); }
+    .btn-dark:hover { box-shadow: 0 8px 20px rgba(15,39,68,0.25); }
+
+    .hero {
+      padding: 8rem 0 4.5rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; }
+    .hero p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 1.6rem; max-width: 480px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .hero-card {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(6px);
+    }
+    .hero-card h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--yellow); }
+    .hero-card li { list-style: none; padding: 0.35rem 0; font-size: 0.95rem; opacity: 0.95; }
+    .hero-card li::before { content: "✓ "; color: var(--yellow); font-weight: 700; }
+
+    section { padding: 4.5rem 0; }
+    .section-title { font-size: 2rem; margin-bottom: 0.4rem; text-align: center; }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 2.4rem; }
+
+    .services {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem;
+    }
+    .service {
+      background: var(--light); border-radius: 14px; padding: 1.6rem 1.4rem;
+      border: 1px solid rgba(15,39,68,0.05);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,39,68,0.08); background: var(--white); }
+    .service .icon {
+      width: 44px; height: 44px; border-radius: 10px; background: var(--navy); color: var(--yellow);
+      display: grid; place-items: center; font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;
+    }
+    .service h3 { font-size: 1.15rem; margin-bottom: 0.45rem; }
+    .service p { font-size: 0.92rem; color: var(--muted); }
+
+    .why {
+      background: var(--light);
+    }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; text-align: center;
+    }
+    .why-item {
+      background: var(--white); border-radius: 14px; padding: 1.8rem 1.3rem;
+      box-shadow: 0 6px 20px rgba(15,39,68,0.05);
+    }
+    .why-item strong { display: block; font-size: 1.6rem; color: var(--blue); margin-bottom: 0.3rem; font-family: 'Outfit', sans-serif; }
+    .why-item p { font-size: 0.92rem; color: var(--muted); }
+
+    .cta {
+      background: var(--navy); color: var(--white); text-align: center;
+    }
+    .cta h2 { color: var(--white); margin-bottom: 0.6rem; }
+    .cta p { opacity: 0.9; margin-bottom: 1.4rem; }
+    .cta .btn { background: var(--yellow); color: var(--navy); }
+
+    .contact-strip {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+      padding: 1.4rem 0; background: var(--blue); color: var(--white); font-size: 0.95rem; font-weight: 500;
+    }
+
+    footer {
+      background: #0a1a2e; color: rgba(255,255,255,0.65); text-align: center;
+      padding: 1.4rem; font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Bright<span>Path</span> Electrical</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="tel:01234567890" class="btn">Call now</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Reliable electrical work, done properly</h1>
+        <p>Fully qualified local electrician for homes and small businesses. Clear quotes, tidy workmanship and no fuss.</p>
+        <div class="hero-actions">
+          <a href="tel:01234567890" class="btn">Call 01234 567890</a>
+          <a href="#contact" class="btn btn-dark">Request a quote</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>We cover</h3>
+        <ul>
+          <li>Rewires & consumer units</li>
+          <li>Fault finding & repairs</li>
+          <li>Lighting & outdoor power</li>
+          <li>EICR landlord certificates</li>
+          <li>EV charger installation</li>
+          <li>Emergency call-outs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-strip">
+    <span>Fully qualified & insured</span>
+    <span>Free no-obligation quotes</span>
+    <span>Local · prompt · professional</span>
+  </div>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Domestic and light commercial electrical work</p>
+      <div class="services">
+        <article class="service">
+          <div class="icon">1</div>
+          <h3>Repairs & faults</h3>
+          <p>Tripping boards, broken sockets, lighting issues and general fault finding.</p>
+        </article>
+        <article class="service">
+          <div class="icon">2</div>
+          <h3>Installations</h3>
+          <p>New circuits, lighting upgrades, outdoor sockets and garden power.</p>
+        </article>
+        <article class="service">
+          <div class="icon">3</div>
+          <h3>Safety certificates</h3>
+          <p>EICR testing for landlords, homeowners and small commercial premises.</p>
+        </article>
+        <article class="service">
+          <div class="icon">4</div>
+          <h3>EV chargers</h3>
+          <p>Home EV charge point installation with clear advice on suitable options.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="container">
+      <h2 class="section-title">Why homeowners choose us</h2>
+      <p class="section-sub">Straightforward service you can trust</p>
+      <div class="why-grid">
+        <div class="why-item">
+          <strong>Clear quotes</strong>
+          <p>Know where you stand before work starts</p>
+        </div>
+        <div class="why-item">
+          <strong>Tidy work</strong>
+          <p>Respect for your home and a clean finish</p>
+        </div>
+        <div class="why-item">
+          <strong>Local</strong>
+          <p>Based nearby and easy to get hold of</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Need an electrician?</h2>
+      <p>Call for a chat or request a free quote — we’ll get back to you promptly.</p>
+      <a href="tel:01234567890" class="btn">01234 567890</a>
+      <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.85;">hello@brightpath.demo</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>BrightPath Electrical — Demo website by Coastline Virtual Studio</p>
+  </footer>
+</body>
+</html>

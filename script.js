@@ -156,3 +156,29 @@ if (form) {
     });
   }
 })();
+
+// ===== Cookie consent banner =====
+(function () {
+  const KEY = 'cvs-cookie-consent';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Cookie notice');
+  banner.innerHTML = `
+    <p>We use essential cookies to make this site work. See our <a href="privacy.html">Privacy Notice</a>.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-decline" data-choice="declined">Decline</button>
+      <button type="button" class="cookie-accept" data-choice="accepted">Accept</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  banner.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-choice]');
+    if (!btn) return;
+    localStorage.setItem(KEY, btn.getAttribute('data-choice'));
+    banner.hidden = true;
+  });
+})();

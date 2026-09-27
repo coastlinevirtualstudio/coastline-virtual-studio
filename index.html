@@ -209,10 +209,10 @@ button{font:inherit;color:inherit}
 .tab[aria-selected="true"]{background:var(--cream);color:var(--navy);border-color:var(--cream)}
 
 /* ---------- MARQUEE ---------- */
-.marquee{background:var(--navy);color:var(--on-navy);height:96px;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);overflow:hidden;display:flex;align-items:center}
+.marquee{background:var(--sea);color:var(--navy);height:96px;border-top:1px solid rgba(16,33,54,.18);border-bottom:1px solid rgba(16,33,54,.18);overflow:hidden;display:flex;align-items:center}
 .marquee-track{display:flex;gap:48px;white-space:nowrap;font-size:clamp(24px,2.4vw,34px);font-weight:500;letter-spacing:-.02em;padding-left:48px;animation:marquee 40s linear infinite;will-change:transform}
 .marquee-track .it{color:inherit}
-.marquee-track .star{color:var(--sea)}
+.marquee-track .star{color:var(--white);-webkit-text-stroke:1.2px var(--navy);paint-order:stroke fill}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- SERVICES ---------- */

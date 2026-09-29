@@ -260,6 +260,9 @@ button{font:inherit;color:inherit}
 .work-meta .desc{font-size:16px;color:var(--on-navy-muted)}
 .work-meta .go{font-family:var(--f-mono);font-size:13px;white-space:nowrap;padding-top:4px}
 .v-rolys{background:#1F4D3A;color:#F3EBD3;justify-content:flex-end}
+.v-palmers{background:#F2EDE4;color:#1F2F4F;justify-content:flex-end}
+.work-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:2;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work-card:hover .work-shot{transform:scale(1.02)}
 .v-rolys::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(243,235,211,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(243,235,211,.08) 1px,transparent 1px);background-size:44px 22px}
 .v-rolys .ring{position:absolute;right:36px;top:36px;width:120px;height:120px;border-radius:50%;border:2px solid #C8A24A}
 .v-rolys .word{font-family:Georgia,serif;font-size:clamp(44px,5vw,72px);font-weight:700;line-height:.95;letter-spacing:-.02em;position:relative}
@@ -682,29 +685,29 @@ textarea.input{padding:16px 18px;min-height:130px;resize:vertical;line-height:1.
     </div>
 
     <div class="work-grid">
-      <a href="https://www.rolys.uk" target="_blank" rel="noopener" class="work-card span-7">
-        <div class="work-visual v-rolys" aria-hidden="true"><span class="ring"></span><span class="word">Roly's<br>Pie &amp; Mash</span></div>
+      <a href="https://palmerspetcare.co.uk" target="_blank" rel="noopener" class="work-card span-7">
+        <div class="work-visual v-palmers" aria-hidden="true"><img class="work-shot" src="images/work/palmers-pet-care.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="ring"></span><span class="word">Palmer's<br>Pet Care</span></div>
         <div class="work-meta">
-          <div class="l"><span class="cat">WEBSITE · LIVE</span><span class="name">Roly's Pie &amp; Mash</span><span class="desc">Traditional pie and mash shop — menu, hours and find us.</span></div>
-          <span class="go">rolys.uk ↗</span>
+          <div class="l"><span class="cat">WEBSITE · LIVE</span><span class="name">Palmer's Pet Care</span><span class="desc">Dog walking, home visits and house-sitting in Selsey.</span></div>
+          <span class="go">palmerspetcare.co.uk ↗</span>
         </div>
       </a>
       <a href="https://coastlinevirtualstudio.co.uk/demos/cafe/index.html" target="_blank" rel="noopener" class="work-card span-5">
-        <div class="work-visual v-cafe" aria-hidden="true"><span class="blob"></span><span class="small">EST. ON THE HARBOUR</span><span class="word">Harbour<br>Roast</span></div>
+        <div class="work-visual v-cafe" aria-hidden="true"><img class="work-shot" src="images/work/harbour-roast.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="blob"></span><span class="small">EST. ON THE HARBOUR</span><span class="word">Harbour<br>Roast</span></div>
         <div class="work-meta">
           <div class="l"><span class="cat">CAFÉ</span><span class="name">Harbour Roast Café</span><span class="desc">Cosy coastal café — menu, hours and a warm, welcoming design.</span></div>
           <span class="go">Demo ↗</span>
         </div>
       </a>
       <a href="https://coastlinevirtualstudio.co.uk/demos/salon/index.html" target="_blank" rel="noopener" class="work-card span-5">
-        <div class="work-visual v-luna" aria-hidden="true"><span class="moon"></span><span class="moon-cut"></span><span class="small">HAIR · NAILS · TREATMENTS</span><span class="stack"><span class="word">Luna<br>Beauty</span><span class="pill">Book online</span></span></div>
+        <div class="work-visual v-luna" aria-hidden="true"><img class="work-shot" src="images/work/luna-beauty.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="moon"></span><span class="moon-cut"></span><span class="small">HAIR · NAILS · TREATMENTS</span><span class="stack"><span class="word">Luna<br>Beauty</span><span class="pill">Book online</span></span></div>
         <div class="work-meta">
           <div class="l"><span class="cat">SALON + BOOKING</span><span class="name">Luna Beauty Studio</span><span class="desc">Beauty salon with online booking for hair, nails and treatments.</span></div>
           <span class="go">Demo ↗</span>
         </div>
       </a>
       <a href="https://coastlinevirtualstudio.co.uk/demos/electrician/index.html" target="_blank" rel="noopener" class="work-card span-7">
-        <div class="work-visual v-bright" aria-hidden="true"><svg viewBox="0 0 100 120"><path d="M58 4L14 68h30l-8 48 50-70H54z" fill="#F5C518"/></svg><span class="word">Bright<br>Path</span></div>
+        <div class="work-visual v-bright" aria-hidden="true"><img class="work-shot" src="images/work/brightpath.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 100 120"><path d="M58 4L14 68h30l-8 48 50-70H54z" fill="#F5C518"/></svg><span class="word">Bright<br>Path</span></div>
         <div class="work-meta">
           <div class="l"><span class="cat">TRADES</span><span class="name">BrightPath Electrical</span><span class="desc">Electrician site built around trust, services and clear contact.</span></div>
           <span class="go">Demo ↗</span>

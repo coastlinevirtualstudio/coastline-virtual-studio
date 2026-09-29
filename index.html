@@ -186,7 +186,7 @@ button{font:inherit;color:inherit}
 .urlbar{flex:1;min-width:0;height:30px;border-radius:8px;background:var(--ink);display:flex;align-items:center;gap:8px;padding:0 12px;font-family:var(--f-mono);font-size:12px;color:var(--on-navy-muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .urlbar span{overflow:hidden;text-overflow:ellipsis}
 .live{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--sea);flex:none}
-.mock{--p-bg:#1F4D3A;--p-fg:#F3EBD3;--p-acc:#C8A24A;--p-font:Georgia,serif;height:400px;border-radius:14px;background:var(--p-bg);color:var(--p-fg);padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;transition:background .6s,color .6s;text-decoration:none}
+.mock{--p-bg:#F2EDE4;--p-fg:#1F2F4F;--p-acc:#4F7F6B;--p-font:'Bricolage Grotesque',sans-serif;height:400px;border-radius:14px;background:var(--p-bg);color:var(--p-fg);padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;transition:background .6s,color .6s;text-decoration:none}
 .mock:hover{color:var(--p-fg)}
 .mock-orb{position:absolute;width:320px;height:320px;border-radius:50%;right:-80px;top:-60px;background:var(--p-acc);opacity:.22;transition:background .6s}
 .mock-nav{display:flex;justify-content:space-between;align-items:center;position:relative;gap:12px}
@@ -202,6 +202,12 @@ button{font:inherit;color:inherit}
 .mock-row i{display:block;height:56px;border-radius:10px;background:var(--p-fg);opacity:.1}
 .mock-row i:last-child{background:var(--p-acc);opacity:.55}
 .mock.swap .mock-body{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.mock-shot{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;background:var(--p-bg)}
+.mock.has-shot{height:auto;min-height:0;aspect-ratio:16/10;padding:0}
+.mock.has-shot>:not(.mock-shot){display:none}
+.mock.has-shot .mock-shot{display:block}
+.mock.has-shot.swap .mock-shot{animation:shotIn .5s ease both}
+@keyframes shotIn{from{opacity:0}to{opacity:1}}
 .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
 .tab{min-height:56px;border-radius:12px;border:1px solid var(--line-dark);background:transparent;color:var(--on-navy-muted);font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;padding:0 14px;cursor:pointer;text-align:left;transition:background .3s,color .3s,border-color .3s}
 .tab:hover{border-color:rgba(236,231,218,.35);color:var(--on-navy)}
@@ -523,25 +529,26 @@ textarea.input{padding:16px 18px;min-height:130px;resize:vertical;line-height:1.
           <div class="lights" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="urlbar">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-            <span data-p="url">www.rolys.uk</span>
+            <span data-p="url">palmerspetcare.co.uk</span>
           </div>
           <span class="live">LIVE PREVIEW</span>
         </div>
-        <a class="mock" id="mock" href="https://www.rolys.uk" target="_blank" rel="noopener" aria-live="polite">
+        <a class="mock" id="mock" href="https://palmerspetcare.co.uk" target="_blank" rel="noopener" aria-live="polite">
+          <img class="mock-shot" id="mock-shot" alt="" decoding="async">
           <span class="mock-orb" aria-hidden="true"></span>
           <span class="mock-nav">
-            <span class="mock-brand" data-p="short">Roly's</span>
-            <span class="mock-links" aria-hidden="true"><i></i><i></i><i></i><span class="mock-cta" data-p="cta">Find us</span></span>
+            <span class="mock-brand" data-p="short">Palmer's</span>
+            <span class="mock-links" aria-hidden="true"><i></i><i></i><i></i><span class="mock-cta" data-p="cta">Plan a visit</span></span>
           </span>
           <span class="mock-body">
             <span class="mock-tag" data-p="tag">WEBSITE · LIVE</span>
-            <span class="mock-name" data-p="name">Roly's Pie &amp; Mash</span>
-            <span class="mock-desc" data-p="desc">Traditional pie and mash shop — menu, hours and find us.</span>
+            <span class="mock-name" data-p="name">Palmer's Pet Care</span>
+            <span class="mock-desc" data-p="desc">Dog walking, home visits and house-sitting in Selsey.</span>
           </span>
           <span class="mock-row" aria-hidden="true"><i></i><i></i><i></i></span>
         </a>
         <div class="tabs" role="tablist" aria-label="Choose a project">
-          <button class="tab" type="button" role="tab" aria-selected="true" data-i="0"><small>01</small>Roly's</button>
+          <button class="tab" type="button" role="tab" aria-selected="true" data-i="0"><small>01</small>Palmer's</button>
           <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-i="1"><small>02</small>Harbour Roast</button>
           <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-i="2"><small>03</small>Luna Beauty</button>
           <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-i="3"><small>04</small>BrightPath</button>
@@ -914,16 +921,28 @@ textarea.input{padding:16px 18px;min-height:130px;resize:vertical;line-height:1.
 
   /* ---------- Hero live preview ---------- */
   var projects = [
-    {short:"Roly's", name:"Roly's Pie & Mash", url:'www.rolys.uk', href:'https://www.rolys.uk', tag:'WEBSITE · LIVE', desc:'Traditional pie and mash shop — menu, hours and find us.', cta:'Find us', bg:'#1F4D3A', fg:'#F3EBD3', acc:'#C8A24A', font:"Georgia, serif"},
-    {short:'Harbour Roast', name:'Harbour Roast Café', url:'coastlinevirtualstudio.co.uk/demos/cafe', href:'https://coastlinevirtualstudio.co.uk/demos/cafe/index.html', tag:'CAFÉ', desc:'Cosy coastal café with menu, hours and a warm, welcoming design.', cta:'Menu', bg:'#F1E6D6', fg:'#3A2618', acc:'#B5652B', font:"'Instrument Serif', Georgia, serif"},
-    {short:'Luna Beauty', name:'Luna Beauty Studio', url:'coastlinevirtualstudio.co.uk/demos/salon', href:'https://coastlinevirtualstudio.co.uk/demos/salon/index.html', tag:'SALON + BOOKING', desc:'Online booking for hair, nails and treatments.', cta:'Book now', bg:'#2A1B2E', fg:'#F4E3EA', acc:'#E7A6C1', font:"'Bricolage Grotesque', sans-serif"},
-    {short:'BrightPath', name:'BrightPath Electrical', url:'coastlinevirtualstudio.co.uk/demos/electrician', href:'https://coastlinevirtualstudio.co.uk/demos/electrician/index.html', tag:'TRADES', desc:'Built around trust, services and clear contact.', cta:'Get a quote', bg:'#0E2138', fg:'#F2F4F7', acc:'#F5C518', font:"'Bricolage Grotesque', sans-serif"}
+    {short:"Palmer's", img:'images/work/palmers-pet-care.webp', name:"Palmer's Pet Care", url:'palmerspetcare.co.uk', href:'https://palmerspetcare.co.uk', tag:'WEBSITE · LIVE', desc:'Dog walking, home visits and house-sitting in Selsey.', cta:'Plan a visit', bg:'#F2EDE4', fg:'#1F2F4F', acc:'#4F7F6B', font:"'Bricolage Grotesque', sans-serif"},
+    {short:'Harbour Roast', img:'images/work/harbour-roast.webp', name:'Harbour Roast Café', url:'coastlinevirtualstudio.co.uk/demos/cafe', href:'https://coastlinevirtualstudio.co.uk/demos/cafe/index.html', tag:'CAFÉ', desc:'Cosy coastal café with menu, hours and a warm, welcoming design.', cta:'Menu', bg:'#F1E6D6', fg:'#3A2618', acc:'#B5652B', font:"'Instrument Serif', Georgia, serif"},
+    {short:'Luna Beauty', img:'images/work/luna-beauty.webp', name:'Luna Beauty Studio', url:'coastlinevirtualstudio.co.uk/demos/salon', href:'https://coastlinevirtualstudio.co.uk/demos/salon/index.html', tag:'SALON + BOOKING', desc:'Online booking for hair, nails and treatments.', cta:'Book now', bg:'#2A1B2E', fg:'#F4E3EA', acc:'#E7A6C1', font:"'Bricolage Grotesque', sans-serif"},
+    {short:'BrightPath', img:'images/work/brightpath.webp', name:'BrightPath Electrical', url:'coastlinevirtualstudio.co.uk/demos/electrician', href:'https://coastlinevirtualstudio.co.uk/demos/electrician/index.html', tag:'TRADES', desc:'Built around trust, services and clear contact.', cta:'Get a quote', bg:'#0E2138', fg:'#F2F4F7', acc:'#F5C518', font:"'Bricolage Grotesque', sans-serif"}
   ];
   var mock = document.getElementById('mock');
   var preview = document.querySelector('.preview');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs .tab'));
   var fields = {}; document.querySelectorAll('[data-p]').forEach(function(el){ fields[el.getAttribute('data-p')] = el; });
   var current = 0, userPicked = false, hovering = false, inView = true, timer = null;
+  var shot = document.getElementById('mock-shot');
+  function applyShot(p){
+    if (p.ok){ shot.src = p.img; mock.classList.add('has-shot'); }
+    else { shot.removeAttribute('src'); mock.classList.remove('has-shot'); }
+  }
+  /* Preload real screenshots; any that fail keep the drawn mockup */
+  projects.forEach(function(p, i){
+    if (!p.img) return;
+    var im = new Image();
+    im.onload = function(){ p.ok = true; if (i === current) applyShot(p); };
+    im.src = p.img;
+  });
 
   function showProject(i, fromUser){
     if (fromUser) userPicked = true;
@@ -933,6 +952,7 @@ textarea.input{padding:16px 18px;min-height:130px;resize:vertical;line-height:1.
     mock.style.setProperty('--p-acc', p.acc);
     mock.style.setProperty('--p-font', p.font);
     mock.href = p.href;
+    applyShot(p);
     mock.setAttribute('aria-label', 'Open ' + p.name + ' (opens in a new tab)');
     ['url','short','cta','tag','name','desc'].forEach(function(k){ if (fields[k]) fields[k].textContent = p[k]; });
     tabs.forEach(function(t, j){ var on = j === i; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });

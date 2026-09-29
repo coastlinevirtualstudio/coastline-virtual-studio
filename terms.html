@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png?v=2" />
+  <link rel="icon" href="favicon.ico?v=2" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
 <body>
   <header class="header" id="header">
